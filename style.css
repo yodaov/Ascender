@@ -115,7 +115,7 @@ html, body {
 }
 
 
-/* --- Minimal mobile safety: hidden link can't be tapped --- */
+/* Mobile safety: hidden link cannot intercept taps */
 .secret-link { pointer-events: none; visibility: hidden; }
 .secret-link.show { pointer-events: auto; visibility: visible; }
 
