@@ -5,7 +5,7 @@ html, body {
   color: #fff;
   margin: 0;
   padding: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 #app { min-height: 100%; display: grid; grid-template-rows: auto 1fr; }
 
@@ -39,9 +39,10 @@ html, body {
   border: none !important;
   box-shadow: none !important;
   overflow: visible;
+  touch-action: none; /* mobile drag fix */
 }
 
-/* remove scanline overlay completely */
+/* remove scanline overlay */
 .puzzle-area::after {
   content: none !important;
   display: none !important;
@@ -75,6 +76,8 @@ html, body {
   user-select: none;
   -webkit-user-drag: none;
   color: #fff;
+  touch-action: none; /* mobile drag fix */
+  z-index: 2;
 }
 .letter:active { cursor: grabbing; }
 
@@ -85,7 +88,7 @@ html, body {
   box-shadow: none !important;
 }
 
-/* hidden link */
+/* hidden link - not clickable until puzzle solved */
 .secret-link {
   position: absolute;
   left: 50%;
@@ -96,12 +99,17 @@ html, body {
   padding: 6px 10px;
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: 6px;
-  opacity: 0;
-  transition: opacity .4s ease, filter .3s ease, border-color .3s ease;
   color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .4s ease, filter .3s ease, border-color .3s ease, visibility .4s ease;
+  z-index: 1;
 }
 .secret-link.show {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   border-color: rgba(255,255,255,0.5);
 }
 .secret-link:hover { filter: brightness(1.2); }
