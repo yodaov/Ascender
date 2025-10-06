@@ -119,7 +119,6 @@ html, body {
 .secret-link { pointer-events: none; visibility: hidden; }
 .secret-link.show { pointer-events: auto; visibility: visible; }
 
-.letter { z-index: 2; }
-.secret-link { z-index: 1; }
-
 .letter, .start-zone { touch-action: none; }
+
+.letter { z-index: 2; } .secret-link { z-index: 1; }
