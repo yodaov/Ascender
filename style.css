@@ -1,0 +1,125 @@
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  background: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+#app { min-height: 100%; display: grid; grid-template-rows: auto 1fr; }
+
+.hero {
+  margin: 0;
+  width: 100%;
+  display: block;
+  background:#000;
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  display: block;
+  object-fit: contain;
+  background:#000;
+}
+
+.puzzle-area {
+  padding: 24px 12px 48px;
+  background: #000;
+}
+
+/* --- start zone, cleaned --- */
+.start-zone {
+  position: relative;
+  width: min(880px, 92vw);
+  height: 96px;
+  margin: 0 auto;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+/* remove scanline overlay completely */
+.puzzle-area::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* VHS look for letters */
+.letter, .secret-link {
+  text-transform: none;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 2px rgba(255,255,255,0.5),
+    0 0 8px rgba(255,255,255,0.25);
+  filter: saturate(0.9) contrast(1.15);
+}
+
+/* letters layout */
+.letters {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 12px;
+}
+.letter {
+  position: absolute;
+  display: inline-block;
+  font-size: clamp(28px, 6vw, 56px);
+  font-weight: 700;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+  color: #fff;
+}
+.letter:active { cursor: grabbing; }
+
+/* remove focus outlines */
+.letter:focus,
+.letter:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* hidden link */
+.secret-link {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  font-size: clamp(18px, 4vw, 28px);
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity .4s ease, filter .3s ease, border-color .3s ease;
+  color: #fff;
+}
+.secret-link.show {
+  opacity: 1;
+  border-color: rgba(255,255,255,0.5);
+}
+.secret-link:hover { filter: brightness(1.2); }
+
+.hint {
+  margin: 12px auto 0;
+  width: min(880px, 92vw);
+  text-align: center;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+}
+
+
+/* --- Minimal mobile safety: hidden link can't be tapped --- */
+.secret-link { pointer-events: none; visibility: hidden; }
+.secret-link.show { pointer-events: auto; visibility: visible; }
+
+.letter { z-index: 2; }
+.secret-link { z-index: 1; }
+
+.letter, .start-zone { touch-action: none; }
