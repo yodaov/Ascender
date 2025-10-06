@@ -11,7 +11,7 @@
   function layoutInitial() {
     const rect = startZone.getBoundingClientRect();
     // Base positions (centered row)
-    const spacing = Math.min(40, rect.width / 8);
+    const spacing = Math.min(80, rect.width / 8);
     const startX = rect.width / 2 - ((letters.length - 1) * spacing) / 2;
     const y = rect.height / 2;
 
