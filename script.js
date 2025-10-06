@@ -127,11 +127,3 @@
     lettersContainer.remove();
   });
 })();
-
-
-// Optional: temporarily suspend drag interactions during reveal
-document.addEventListener('subida:revealing', function(){
-  var letters = document.querySelectorAll('.letter');
-  letters.forEach(function(el){ el.style.pointerEvents = 'none'; });
-  setTimeout(function(){ letters.forEach(function(el){ el.style.pointerEvents = ''); }, 600);
-});
