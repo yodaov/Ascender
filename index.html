@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subida</title>
+  <link rel="preload" href="assets/Cryo2.png" as="image">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <figure class="hero">
+      <img src="assets/Cryo2.png" alt="Dark lab with cryo chamber and organism" />
+    </figure>
+
+    <section class="puzzle-area">
+      <div id="startZone" class="start-zone" aria-label="Drag letters from here to form the word">
+        <a id="secretLink" class="secret-link" href="https://www.roblox.com/games/135792990462770/Ascend" target="_blank" rel="noopener">▶ Ascend</a>
+        <div id="letters" class="letters" role="list" aria-label="Draggable letters">
+          <!-- Letters are intentionally shuffled to spell 'duiaSb' -->
+          <span class="letter" data-letter="d" role="listitem" tabindex="0">d</span>
+          <span class="letter" data-letter="u" role="listitem" tabindex="0">u</span>
+          <span class="letter" data-letter="i" role="listitem" tabindex="0">i</span>
+          <span class="letter" data-letter="a" role="listitem" tabindex="0">a</span>
+          <span class="letter" data-letter="S" role="listitem" tabindex="0">S</span>
+          <span class="letter" data-letter="b" role="listitem" tabindex="0">b</span>
+        </div>
+      </div>
+      <p class="hint" aria-live="polite">Drag the letters to form <strong>"Subida"</strong>.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
