@@ -32,9 +32,9 @@ html, body {
   width: min(880px, 92vw);
   height: 96px;
   margin: 0 auto;
-  border: none;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 60%);
+  background: transparent;   /* remove gradient */
   overflow: visible;
+  border: none;              /* ensure no border */
 }
 /* VHS look */
 .letter, .secret-link {
